@@ -1,0 +1,9 @@
+   0 mkdir -p /home/animals/dogs /home/animals/cats /home/animals/fish && touch /home/animals/dogs/pluto /home/animals/cats/garfield /home/animals/fish/nemo
+   1 touch /tmp/adam
+   2 mkdir -p /home/humans && cp /tmp/adam /home/humans
+   3 touch /tmp/evA
+   4 mv /tmp/evA /home/humans/eve
+   5 tree /home
+   6 clear
+   7 history
+   8 history > history_HW_Guckova_Linux.txt
