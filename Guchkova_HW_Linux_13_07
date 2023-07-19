@@ -1,0 +1,23 @@
+   0 mkdir -p /home/user/start && >> /home/user/start/1.txt
+   1 echo "Start" >> /home/user/start/1.txt 
+   2 date +'%D' >> /home/user/start/1.txt 
+   3 mkdir /opt/task && cp /home/user/start/1.txt /opt/task/start.txt
+   4 cd /
+   5 ls -a
+   6 ls -a | tail -4
+   7 ls -a | tail -4 >> /opt/task/start.txt
+   8 mkdir /tmp/testnew && cp -r /opt/task /tmp/testnew
+   9 cd /tmp/testnew/
+  10 ls
+  11 cd task
+  12 ls
+  13 cat start.txt
+  14 cat /root/readme.txt >> /tmp/testnew/task/start.txt
+  15 cat /root/readme.txt
+  16 cat /tmp/testnew/task/start.txt 
+  17 rm -r /opt/task
+  18 cd /opt
+  19 ls
+  20 cd /
+  21 history
+  22 history > Guchkova_HW_Linux_13_07
