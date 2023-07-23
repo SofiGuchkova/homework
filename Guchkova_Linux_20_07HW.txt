@@ -1,0 +1,9 @@
+   0 mkdir -p /tmp/hw3/newfile/Sophie && date +'%D' >> /tmp/hw3/newfile/Sophie/Newfile.txt
+   1 echo "Homework 3" >> /tmp/hw3/newfile/Sophie/Newfile.txt 
+   2 df -h
+   3 df -h | head -2 >> /tmp/hw3/newfile/Sophie/Newfile.txt 
+   4 history | tail -5 >> /tmp/hw3/newfile/Sophie/Newfile.txt 
+   5 cat /proc/cpuinfo 
+   6 cat /proc/cpuinfo | grep vendor >> /tmp/hw3/newfile/Sophie/Newfile.txt 
+   7 cat /tmp/hw3/newfile/Sophie/Newfile.txt 
+   8 history >> /Guchkova_Linux_20_07HW.txt
