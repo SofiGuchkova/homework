@@ -1,30 +1,28 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args)
-    //создаем переменные типа "byte", типа "int", типа "double", типа "float"
-    {
-        byte Byte = 100;
-        int Int = 96;
-        double Double = 3.14;
-        float Float = 2.718f;
+    public static void main(String[] args) {
 
-        // более широкий тип к более узкому
-        byte byteResult = (byte)Int;
-        float floatResult = (float)Double;
-        // более узкий тип к более широкому
-        int intResult = (int)Byte;
-        double doubleResult = (double)Float;
+        Scanner scan = new Scanner(System.in);
+        Random rand = new Random();
+        int addNum = rand.nextInt(1, 100);
+        int addNum1 = rand.nextInt(1, 100);
+        int addResult = addNum + addNum1;
+        System.out.print("Решите пример: " + addNum + " + " + addNum1 + " = ");
+        int scanNum = scan.nextInt();
+        System.out.println("Ваш ответ: " + scanNum);
+        System.out.println("Правильный ответ: " + addResult);
 
-        System.out.println(byteResult);
-        System.out.println(floatResult);
-        System.out.println(intResult);
-        System.out.println(doubleResult);
-
-        // задание 2
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Хочу познакомиться. Как тебя зовут? Напиши здесь свое имя:");
-            String name = scanner.nextLine();
-            System.out.println("Привет," + name + "!");
+        while (scanNum != addResult) {
+            addNum = rand.nextInt(1, 100);
+            addNum1 = rand.nextInt(1, 100);
+            addResult = addNum + addNum1;
+            System.out.print("Решите пример: " + addNum + " + " + addNum1 + " = ");
+            scanNum = scan.nextInt();
+            System.out.println("Ваш ответ: " + scanNum);
+            System.out.println("Правильный ответ: " + addResult);
+        }
+        System.out.println("Ура! Опросник завершён! Вы победили!");
     }
 }
