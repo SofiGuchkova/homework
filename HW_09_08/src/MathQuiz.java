@@ -7,27 +7,30 @@ import java.util.Scanner;
         Calculator calculator = new Calculator();
         Random random = new Random();
 
-        String[] namesOfPlayers = new String[5];
-        int[] scoreOfPlayers = new int[5];
-
-
         void start() {
+
+            System.out.print("Введите количество вопросов: ");
+            int numbOfQuestions = scanner.nextInt();
+            System.out.print("Введите количество игроков: ");
+                    int numbOfPlayers = scanner.nextInt();
+
+            String[] namesOfPlayers = new String[numbOfPlayers];
+            int[] scoreOfPlayers = new int[namesOfPlayers.length];
             int score;
             String name;
-            for (int i = 1; i < 6; i++) {
-
+            for (int i = 1; i < namesOfPlayers.length + 1; i++) {
                 System.out.print("Введите имя игрока №" + i + ": ");
-                String nameOfPlayer = scanner.nextLine();
-                namesOfPlayers[i - 1] = nameOfPlayer;
+                String nameOfPlayer = scanner.next();
+                namesOfPlayers[i-1] = nameOfPlayer;
             }
-            for (int counter = 1; counter < 7; counter++) {
+            for (int counter = 1; counter <= numbOfQuestions; counter++) {
 
                 String[] operator = {" / ", " + ", " - ", " * "};
                 int userResult;
                 int rightResult;
                 System.out.println(" ");
                 System.out.println(" ");
-                for (int j = 1; j < 6; j++) {
+                for (int j = 1; j < namesOfPlayers.length + 1; j++) {
 
                     int val = random.nextInt(1, 20);
                     int val1 = random.nextInt(1, 20);
@@ -54,7 +57,7 @@ import java.util.Scanner;
                 }
                 System.out.println(" ");
                 System.out.println("Результаты игроков после " + counter + "-го вопроса: ");
-                for (int q = 1; q < 6; q++) {
+                for (int q = 1; q < namesOfPlayers.length + 1; q++) {
 
                     System.out.print(" " + namesOfPlayers[q - 1] + ": " + scoreOfPlayers[q - 1] + " баллов.");
                 }
@@ -74,15 +77,16 @@ import java.util.Scanner;
                     }
                 }
             }
-            for (int i = 1; i < 6; i++) {
+            for (int i = 1; i < scoreOfPlayers.length + 1; i++) {
                 System.out.println(i + " место: " + namesOfPlayers[i - 1] + " c результатом: " + scoreOfPlayers[i - 1] + " баллов.");
             }
-            SearchTheName();
+
+            SearchTheName(scoreOfPlayers, namesOfPlayers);
         }
-            void SearchTheName(){
-            int findScore;
+            void SearchTheName(int[] arrayNumb, String[] arrayName){
+                int findScore;
             int minVal = 0;
-            int maxVal = scoreOfPlayers.length - 1;
+            int maxVal = arrayNumb.length - 1;
             int middleVal;
             System.out.print(" Введите количество очков, чтобы узнать какой из игроков их набрал: ");
             findScore = scanner.nextInt();
@@ -90,14 +94,17 @@ import java.util.Scanner;
             while (minVal <= maxVal) {
                 middleVal = minVal+(maxVal - minVal)/2;
 
-                if (findScore == scoreOfPlayers[middleVal]) {
-                        System.out.println("Игрок, набравший " + findScore + " баллов: " + namesOfPlayers[middleVal]);
+                if (findScore == arrayNumb[middleVal]) {
+                        System.out.println("Игрок, набравший " + findScore + " баллов: " + arrayName[middleVal]);
                         return;
                 }
-                if (findScore < scoreOfPlayers[middleVal]) {
+                if (findScore < arrayNumb[middleVal]) {
                     minVal = middleVal + 1;
-                } if (findScore > scoreOfPlayers[middleVal]) {
+                } if (findScore > arrayNumb[middleVal]) {
                     maxVal = middleVal - 1;
+                }
+                else {
+                    System.out.println(" Ни один из игроков не набрал такое количество баллов. ");
                 }
                 }
             }
