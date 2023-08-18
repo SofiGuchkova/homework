@@ -1,0 +1,9 @@
+1 NAME="Sophie"
+2 DATE="18.08.2023"
+3 for i in {1..10}; do
+4 FILNAME="${i}_${DATE}"
+5 touch "$FILENAME"
+6 echo "File $FILENAME created."
+7 done
+8 # "crontab -e"
+9 # "*/15 * * * * /opt/250523_evening/Guchkova_Sophie/taskSophieGuchkova.sh"
